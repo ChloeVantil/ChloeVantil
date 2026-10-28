@@ -13,11 +13,12 @@ class SiteSidebar extends HTMLElement {
 
                 <p class="sidebar_heading">Menu</p>
                 <ul class="sidebar_menu">
+                    <li><a href="about.html">About</a></li>
                     <li><a href="resume.html">Resume</a></li>
-                    <li><a href="game-audio.html">Game Audio</a></li>
-                    <li><a href="reels-linear-media.html">Reels / Linear Media</a></li>
-                    <li><a href="vr-audio.html">VR Audio</a></li>
-                    <li><a href="animation-redesigns.html">Animation ReDesigns</a></li>
+                    <li><a href="game-audio.html">ReDesigns</a></li>
+                    <li><a href="reels-linear-media.html">Reels</a></li>
+                    <li><a href="linear-media.html">Linear Media</a></li>
+                    <li><a href="vr-audio.html">VR & Game Audio</a></li>
                     <li><a href="composition.html">Composition</a></li>
                 </ul>
             </nav>`;

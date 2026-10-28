@@ -13,6 +13,8 @@ main {
 body {
     margin: 0;
     padding-top: 145px;
+    background-color: #000;
+    color: #f2f2f2;
 }
 
 section {
@@ -20,7 +22,7 @@ section {
 }
 
 h1 {
-    color: #e7835b;
+    color: #ffffff;
     font-weight: 500;
     font-size: clamp(3.25rem, 9vw, 4rem);
 }
@@ -28,20 +30,20 @@ h1 {
 h2 {
     display: flex;
     justify-content: center;
-    font-family: 'Work Sans', sans-serif;
-    color: #2f4f4f;
+    font-family: 'Reem Kufi', sans-serif;
+    color: #ffffff;
     font-weight: 500;
     margin-bottom: 2rem;
 }
 
 h3 {
-    font-family: 'Source Sans 3', arial, sans-serif;
+    font-family: 'Outfit', arial, sans-serif;
     font-weight: 600;
     font-size: 20px;
 }
 
 p {
-    font-family: 'Source Sans 3', arial, sans-serif;
+    font-family: 'Outfit', arial, sans-serif;
 }
 
 /* #endregion */
@@ -93,6 +95,60 @@ footer {
     margin-bottom: 1rem;
 }
 
+#copy_email_notice {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1200;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.96);
+    color: #1a1a1a;
+    font-family: 'Outfit', arial, sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    position: fixed;
+    overflow: visible;
+}
+
+#copy_email_notice::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 999px;
+    padding: 2px;
+    background: conic-gradient(from 0deg, #ff4d6d, #ff9f1c, #ffd166, #2ec4b6, #3a86ff, #9b5de5, #ff4d6d);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+#copy_email_notice.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: email-toast-glow 1.6s ease-in-out infinite;
+}
+
+@keyframes email-toast-glow {
+    0%, 100% {
+        text-shadow: 0 0 0 rgba(255, 186, 58, 0);
+        letter-spacing: 0;
+    }
+    50% {
+        text-shadow: 0 0 12px rgba(255, 186, 58, 0.35);
+        letter-spacing: 0.02em;
+    }
+}
+
 #copyright_content {
     white-space: nowrap;
     font-size: clamp(0.75rem, 2.6vw, 1rem);
@@ -105,9 +161,9 @@ footer {
 }
 
 #powered_by_content {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Reem Kufi', sans-serif;
     font-size: 0.9rem;
-    color: #5e5e5e;
+    color: #a8a8a8;
 }
 
 #powered_by_logo {
@@ -156,7 +212,7 @@ site-sidebar.open .sidebar_panel {
 .sidebar_home,
 .sidebar_menu a {
     text-decoration: none;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Reem Kufi', sans-serif;
     transition: color 0.15s ease;
 }
 
@@ -170,7 +226,7 @@ site-sidebar.open .sidebar_panel {
 
 .sidebar_heading {
     margin: 0 0 1rem;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Reem Kufi', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: #2f4f4f;
@@ -192,7 +248,7 @@ site-sidebar.open .sidebar_panel {
 
 .sidebar_home:hover,
 .sidebar_menu a:hover {
-    color: #e7835b;
+    color: rgb(216, 191, 28);
 }
 
 .nav_toggle {
@@ -307,7 +363,7 @@ site-sidebar.open .sidebar_panel {
 
 .work_text p {
     text-align: center;
-    color: #5e5e5e;
+    color: #a8a8a8;
     margin-top: 0px;
 }
 
@@ -319,19 +375,29 @@ div.work_button {
 
 a.work_button {
     display: inline-block;
-    padding: 0.9rem 2rem;
-    background-color: #e7835b;
-    color: #fff;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1.05rem;
+    padding: 17px 40px;
+    border-radius: 10px;
+    border: 0;
+    background-color: rgb(255 242 152);
+    letter-spacing: 1.5px;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 15px;
     text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: all 0.3s ease;
+    box-shadow: rgb(160 150 81) 0px 10px 0px 0px;
+    color: rgb(85, 151, 230);
+    cursor: pointer;
 }
 
 a.work_button:hover {
-    background-color: #d9714a;
+    box-shadow: rgb(134, 125, 67) 0px 10px 0px 0px;
+}
+
+a.work_button:active {
+    background-color: rgb(255, 232, 79);
+    box-shadow: rgb(134, 125, 67) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 200ms;
 }
 
 a.work_button:focus-visible {
@@ -339,9 +405,36 @@ a.work_button:focus-visible {
     outline-offset: 2px;
 }
 
+/* Gallery: grid of cards (home page Recent Works). */
+.works.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.gallery .work {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+}
+
+.gallery .work_text h3 {
+    margin: 0 0 0.35rem;
+    text-align: center;
+}
+
+.gallery div.work_button {
+    aspect-ratio: 20 / 10;
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
 .embed {
     position: relative;
     aspect-ratio: 20 / 10;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .embed iframe {
@@ -374,7 +467,7 @@ a.work_button:focus-visible {
 }
 
 .work_sans {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Reem Kufi', sans-serif;
 }
 
 .reel_column {
@@ -395,7 +488,7 @@ a.work_button:focus-visible {
 
 .fullsize_text p {
     margin: 0;
-    color: #5e5e5e;
+    color: #a8a8a8;
 }
 
 #intro_container {
@@ -403,7 +496,7 @@ a.work_button:focus-visible {
 }
 
 #intro_content p {
-    color: #54595c;
+    color: #c4c8ca;
     font-size: 18px;
     line-height: 1.8;
 }
@@ -413,18 +506,28 @@ a.work_button:focus-visible {
     gap: 1rem;
 }
 
+#reel_container {
+    max-width: 960px;
+    margin-block: 2rem;
+}
+
+#reel_container .embed {
+    aspect-ratio: 16 / 9;
+}
+
 #hero_content h1 {
     margin-bottom: 0px;
 }
 
 #subhero_content {
-    font-family: 'Source Sans 3', arial, sans-serif;
+    font-family: 'Outfit', arial, sans-serif;
     font-size: clamp(1.375rem, 5vw, 2.25rem);
 }
 
 #tagline {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
     margin: 0px;
-    color: #1b1b1b;
+    color: #f2f2f2;
     font-weight: 300;
 }
 
@@ -446,6 +549,24 @@ a.work_button:focus-visible {
 
     .work:nth-child(even)> :first-child {
         order: 2;
+    }
+
+    .works.gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery .work:nth-child(even)> :first-child {
+        order: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .works.gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #resume_content img {
+        max-width: 700px;
     }
 }
 
